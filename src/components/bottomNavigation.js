@@ -6,11 +6,6 @@ import {
   BottomNavigation,
   BottomNavigationAction,
 } from '@material-ui/core';
-import {
-  TrendingUp,
-  Person,
-  Home,
-} from '@material-ui/icons';
 import HomeIcon from '../icons/home';
 import MeIcon from '../icons/me';
 import AInvestmentIcon from '../icons/ainvestment';
@@ -40,7 +35,7 @@ function BottNav({ value, onChange }) {
     <BottomNavigation showLabels={true} value={value} onChange={handleChange} className={classes.root}>
       <BottomNavigationAction label="Home" value="Home" icon={<HomeIcon />} />
       <BottomNavigationAction label="AInvestment" value="AInvestment" icon={<AInvestmentIcon />} />
-      <BottomNavigationAction label="Me" value="Me" icon={<MeIcon />} />
+      <BottomNavigationAction label="Me" value="Me" icon={<MeIcon />} disabled />
     </BottomNavigation>
   );
 }
