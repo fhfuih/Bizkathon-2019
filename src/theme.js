@@ -11,7 +11,8 @@ export default createMuiTheme({
         '&$selected': {
           backgroundColor: 'white',
           fill: 'rgb(54, 102, 142)',
-        }
+        },
+        fill: 'rgba(0, 0, 0, 0.54)'
       }
     }
   }
