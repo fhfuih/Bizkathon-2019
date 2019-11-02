@@ -3,8 +3,8 @@ import React from 'react';
 export default function() {
   return (
     <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <g id="Home" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-        <g id="iPhone-11" transform="translate(-173.000000, -750.000000)" fill="#36668E" fillRule="nonzero">
+    <g id="Home" stroke="none" strokeWidth="1" fillRule="evenodd">
+        <g id="iPhone-11" transform="translate(-173.000000, -750.000000)" fillRule="nonzero">
             <g id="编组-16" transform="translate(0.000000, 740.000000)">
                 <g id="编组-3" transform="translate(158.000000, 10.000000)">
                     <g id="编组" transform="translate(15.500000, 0.000000)">
