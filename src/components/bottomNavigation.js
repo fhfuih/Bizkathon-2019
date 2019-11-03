@@ -6,6 +6,9 @@ import {
   BottomNavigation,
   BottomNavigationAction,
 } from '@material-ui/core';
+import {
+  Link
+} from '@reach/router';
 import HomeIcon from '../icons/home';
 import MeIcon from '../icons/me';
 import AInvestmentIcon from '../icons/ainvestment';
@@ -16,9 +19,8 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     right: 0,
     bottom: 0,
-    height: 84,
     zIndex: theme.zIndex.appBar,
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   }
 }))
 
@@ -32,9 +34,9 @@ function BottNav({ value, onChange }) {
   };
 
   return (
-    <BottomNavigation showLabels={true} value={value} onChange={handleChange} className={classes.root}>
-      <BottomNavigationAction label="Home" value="Home" icon={<HomeIcon />} />
-      <BottomNavigationAction label="AInvestment" value="AInvestment" icon={<AInvestmentIcon />} />
+    <BottomNavigation showLabels={true} value={['Periodic Report', 'Current'].includes(value) ? 'AInvestment' : value} onChange={handleChange} className={classes.root}>
+      <BottomNavigationAction label="Home" value="Home" icon={<HomeIcon />} component={Link} to="/" />
+      <BottomNavigationAction label="AInvestment" value="AInvestment" icon={<AInvestmentIcon />} component={Link} to="/ainvestment" />
       <BottomNavigationAction label="Me" value="Me" icon={<MeIcon />} disabled />
     </BottomNavigation>
   );

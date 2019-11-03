@@ -3,14 +3,18 @@ import {
   makeStyles
 } from '@material-ui/core/styles';
 import {
-  Paper,
   Grid,
   Divider,
+  Paper,
   Typography,
   List,
   ListItem,
   ListItemText,
 } from '@material-ui/core';
+import Carousel from '../components/carousel';
+import CreditCard from '../components/creditCard';
+import LargeTile from '../components/largeTile';
+import TextHighlight from '../components/highlight';
 import ScanIcon from '../icons/scan';
 import PayIcon from '../icons/pay';
 import TransferIcon from '../icons/transfer';
@@ -25,18 +29,11 @@ const useStyles = makeStyles(theme => ({
     padding: '0 12px',
     flexGrow: 1,
   },
-  search: {
-    padding: 15,
-    backgroundColor: "#d8d8d8",
-    borderRadius: 0,
+  divider: {
+    marginBottom: 15,
   },
-  searchInner: {
-    backgroundColor: "white",
-    borderRadius: 15,
-    display: 'flex'
-  },
-  input: {
-    flex: 1
+  section: {
+    margin: '0 15px 15px 15px',
   },
   largeTile: {
     display: 'flex',
@@ -72,102 +69,100 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function TextHighlight({ children }) {
-  return (
-    <Typography variant="inherit" color="primary">{children}</Typography>
-  )
-}
-
 function Home(props) {
   const classes = useStyles();
   return (
     <>
-      <div style={{ margin: "22px 14px" }}>
+      <div style={{ margin: "15px 0 10px 0" }}>
+        <Carousel>
+            <CreditCard cardNumber="5101 1068 **** ****" validDates="09/17 - 09/22" name="ZHANG Sheng" background="0" />
+            <CreditCard cardNumber="5101 1068 **** ****" validDates="09/17 - 09/22" name="ZHANG Sheng" background="1" />
+            <CreditCard cardNumber="5101 1068 **** ****" validDates="09/17 - 09/22" name="ZHANG Sheng" background="2" />
+        </Carousel>
+        <Typography color="primary" align="right" variant="caption" component="div" style={{ marginRight: 15 }}>Edit my cards</Typography>
+      </div>
+      <Divider className={classes.divider} />
+      <div className={classes.section}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <Paper className={classes.largeTile}>
-              <Typography color="primary" className={classes.largeTileLineOne}>Current Assets</Typography>
-              <Typography className={classes.largeTileLineTwo}>13,000.00 HKD</Typography>
-              <Typography color="primary" className={classes.largeTileLineThree}>&gt; more</Typography>
-            </Paper>
+            <LargeTile lineOne="Current Assets" lineTwo="13,000.00 HKD"/>
           </Grid>
           <Grid item xs={6}>
-            <Paper className={classes.largeTile}>
-              <Typography color="primary"  className={classes.largeTileLineOne}>Current Debts</Typography>
-              <Typography className={classes.largeTileLineTwo}>0.00 HKD</Typography>
-              <Typography color="primary"  className={classes.largeTileLineThree}>&gt; more</Typography>
-            </Paper>
+            <LargeTile lineOne="Current Debts" lineTwo="0.00 HKD"/>
           </Grid>
         </Grid>
       </div>
-      <Divider />
-      <div style={{ padding: "15px 30px" }}>
-        <Grid container spacing={0}>
-          <Grid item xs={3} className={classes.smallTile}>
-            <div className={classes.smallTileIcon}>
-              <ScanIcon />
-            </div>
-            <Typography className={classes.smallTileCaption}>Scan</Typography>
+      <div className={classes.section}>
+        <Paper elevation={3} style={{ padding: '8px 0' }}>
+          <Grid container spacing={0}>
+            <Grid item xs={3} className={classes.smallTile}>
+              <div className={classes.smallTileIcon}>
+                <ScanIcon />
+              </div>
+              <Typography className={classes.smallTileCaption}>Scan</Typography>
+            </Grid>
+            <Grid item xs={3} className={classes.smallTile}>
+              <div className={classes.smallTileIcon}>
+                <PayIcon />
+              </div>
+              <Typography className={classes.smallTileCaption}>Pay</Typography>
+            </Grid>
+            <Grid item xs={3} className={classes.smallTile}>
+              <div className={classes.smallTileIcon}>
+                <TransferIcon />
+              </div>
+              <Typography className={classes.smallTileCaption}>Transfer</Typography>
+            </Grid>
+            <Grid item xs={3} className={classes.smallTile}>
+              <div className={classes.smallTileIcon}>
+                <RepayIcon />
+              </div>
+              <Typography className={classes.smallTileCaption}>Repay</Typography>
+            </Grid>
+            <Grid item xs={3} className={classes.smallTile}>
+              <div className={classes.smallTileIcon}>
+                <ReceiveIcon />
+              </div>
+              <Typography className={classes.smallTileCaption}>Receive</Typography>
+            </Grid>
+            <Grid item xs={3} className={classes.smallTile}>
+              <div className={classes.smallTileIcon}>
+                <ExchangeIcon />
+              </div>
+              <Typography className={classes.smallTileCaption}>Exchange Rate</Typography>
+            </Grid>
+            <Grid item xs={3} className={classes.smallTile}>
+              <div className={classes.smallTileIcon}>
+                <MoreIcon />
+              </div>
+              <Typography className={classes.smallTileCaption}>More</Typography>
+            </Grid>
           </Grid>
-          <Grid item xs={3} className={classes.smallTile}>
-            <div className={classes.smallTileIcon}>
-              <PayIcon />
-            </div>
-            <Typography className={classes.smallTileCaption}>Pay</Typography>
-          </Grid>
-          <Grid item xs={3} className={classes.smallTile}>
-            <div className={classes.smallTileIcon}>
-              <TransferIcon />
-            </div>
-            <Typography className={classes.smallTileCaption}>Transfer</Typography>
-          </Grid>
-          <Grid item xs={3} className={classes.smallTile}>
-            <div className={classes.smallTileIcon}>
-              <RepayIcon />
-            </div>
-            <Typography className={classes.smallTileCaption}>Repay</Typography>
-          </Grid>
-          <Grid item xs={3} className={classes.smallTile}>
-            <div className={classes.smallTileIcon}>
-              <ReceiveIcon />
-            </div>
-            <Typography className={classes.smallTileCaption}>Receive</Typography>
-          </Grid>
-          <Grid item xs={3} className={classes.smallTile}>
-            <div className={classes.smallTileIcon}>
-              <ExchangeIcon />
-            </div>
-            <Typography className={classes.smallTileCaption}>Exchange Rate</Typography>
-          </Grid>
-          <Grid item xs={3} className={classes.smallTile}>
-            <div className={classes.smallTileIcon}>
-              <MoreIcon />
-            </div>
-            <Typography className={classes.smallTileCaption}>More</Typography>
-          </Grid>
-        </Grid>
+        </Paper>
       </div>
-      <Divider />
-      <div style={{ padding: "15px 30px" }}>
-        <Typography color="primary" component="div" align="left" gutterBottom>Transaction Records</Typography>
-        <div style={{ padding: "0 15px" }}>
-          <List dense>
-            <ListItem>
-              <ListItemText secondary="19:00:03 01-10-2019"><TextHighlight>•</TextHighlight> Receive <TextHighlight>5,000.00 HKD</TextHighlight> from ZHANG.</ListItemText>
-            </ListItem>
-            <Divider light />
-            <ListItem>
-              <ListItemText secondary="19:00:03 01-10-2019"><TextHighlight>•</TextHighlight> Transfer <TextHighlight>5,000.00 HKD</TextHighlight> to MU.</ListItemText>
-            </ListItem>
-            <Divider light />
-            <ListItem>
-              <ListItemText secondary="19:00:03 01-10-2019"><TextHighlight>•</TextHighlight> Pay <TextHighlight>200.00 HKD</TextHighlight> to MU.</ListItemText>
-            </ListItem>
-            <Divider light />
-            <Typography color="primary" className={classes.largeTileLineThree} style={{ marginTop: 6 }} align="right">&gt; more</Typography>
-          </List>
-        </div>
+      <Divider  className={classes.divider}/>
+      <div className={classes.section}>
+        <Paper elevation={3} style={{ padding: '10px 15px' }}>
+          <Typography color="primary" component="div" align="left">Transaction Records</Typography>
+          <div style={{ padding: "0 15px" }}>
+            <List dense disablePadding>
+              <ListItem>
+                <ListItemText secondary="19:00:03 01-10-2019"><TextHighlight>•</TextHighlight> Receive <TextHighlight>5,000.00 HKD</TextHighlight> from ZHANG.</ListItemText>
+              </ListItem>
+              <Divider light />
+              <ListItem>
+                <ListItemText secondary="19:00:03 01-10-2019"><TextHighlight>•</TextHighlight> Transfer <TextHighlight>5,000.00 HKD</TextHighlight> to MU.</ListItemText>
+              </ListItem>
+              <Divider light />
+              <ListItem>
+                <ListItemText secondary="19:00:03 01-10-2019"><TextHighlight>•</TextHighlight> Pay <TextHighlight>200.00 HKD</TextHighlight> to MU.</ListItemText>
+              </ListItem>
+            </List>
+            <Typography color="primary" align="right" variant="caption" component="div">&gt; more</Typography>
+          </div>
+        </Paper>
       </div>
+      <div style={{height:56}}/>
     </>
   )
 }

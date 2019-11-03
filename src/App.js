@@ -29,7 +29,7 @@ function App() {
     <MuiThemeProvider theme={theme}>
       <div className={classes.root}>
         <TopBar title={title} />
-        <Router />
+        <Router onRoute={handlePageChange} />
         <BottomNavigation value={title} onChange={handlePageChange} />
       </div>
     </MuiThemeProvider>
